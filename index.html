@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="신입 웹디자이너 최숙영의 개인포트폴리오">
+    <meta name="keywords" content="개인포트폴리오">
+    <meta name="actor" content="choi sook young">  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sook-young.github.io/lastport/">
+    <meta property="og:image" content="./images/og.jpg">
+    <meta property="og:title" content="광동제약">
+    <meta property="og:description" content="신입 웹디자이너 최숙영의 개인포트폴리오">  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://sook-young.github.io/lastport/">
+    <meta name="twitter:image" content="./images/og.jpg">
+    <meta name="twitter:title" content="개인포트폴리오">
+    <meta name="twitter:description" content="신입 웹디자이너 최숙영의 개인포트폴리오">  
+    <link rel="stylesheet" href="./css/reset.css">
+    <title>portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        :root{            
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight:400;
+            font-size:18px;
+            text-align:center;
+            background:#666;
+        }
+        #wrap{
+            overflow: hidden;
+        }
+        .header {
+            position:fixed;
+            width:100%;
+            z-index:1000;
+            padding:16px 0;
+            background:#666;
+        }
+        .header .container{
+            width:100%;
+            max-width:640px;
+            margin:0 auto;
+            display:grid;
+            grid-template-columns:auto auto;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .header h1{
+            font-weight:900;
+            font-size:32px;
+            text-transform:uppercase;
+            color:#fff;
+        }
+        nav ul{
+            display:grid;
+            grid-template-columns:repeat(4,auto);
+            gap:16px;
+        }
+        nav li{
+            border-bottom:2px solid #999;
+            padding-bottom:2px;
+            font-weight:600;
+            font-size:18px;
+            text-transform:capitalize;
+            color:#999;
+        }
+        nav li.active,nav li:hover{
+            border-bottom:2px solid #fff;                   
+            color:#fff;
+            transform:scale(1.1);
+        }
+        .sec01 .container{
+            display:grid;
+            grid-template-columns:1fr;
+            align-content:center;
+            justify-items:center;
+            gap:20px;
+            max-width:640px;
+            height:100vh;
+            margin:0 auto;
+        }
+        .sec .container h2{
+            font-weight:600;
+            font-size:2em;
+            text-transform:uppercase;
+        }
+        .sec01 button{
+            width:60px;
+            height:30px;
+            border-radius:5px;
+            font-weight:600;
+            text-transform:uppercase;
+            color:#666;
+        }
+        .sec01 button:hover{
+            transform:scale(1.1);
+            color:#000;
+        }
+        .sec02{
+            background:#fff;
+        }
+        .sec02 .container{
+            display:grid;
+            grid-template-columns:1fr;
+            justify-items:center;
+            align-content:center;
+            gap:30px;
+            max-width:640px;
+            height:100vh;
+            margin:0 auto;
+            background:inherit;
+        }
+        .sec02 .img-box{        
+            position:relative;
+        }
+        .sec02 ul{
+            position:absolute;
+            top:70%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+        .sec02 li{
+            text-align:center;
+        }
+        .sec03{
+            padding:100px 0;
+        }
+        .sec03 .container{
+            display:grid;
+            grid-template-columns:1fr;
+            align-content:center;
+            justify-items:center;
+            gap:30px;
+            max-width:1200px;
+            /* height:100vh; */
+            margin:0 auto;
+        }
+        .sec03 article{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            align-items:center;
+        }
+        .sec03 button{
+            width:120px;
+            height:30px;
+            margin-top:5px;
+            border-radius:5px;
+            font-weight:600;
+            color:#666;
+        }
+        .sec03 button:hover{
+            transform:scale(1.1);
+            color:#000;
+        }
+        article h3{
+            font-weight:600;
+            font-size:1.2em;
+            text-align:center;
+        }
+        article .megacoffee-img{
+            grid-area:1/1/2/2;
+        }
+        .sec04{
+            padding:100px 0;
+            background:#fff;
+        }
+        .sec04 .container{
+            max-width:1200px;
+            margin:0 auto;
+            background:inherit;
+        }
+        .sec04 h2{
+            margin-bottom:60px;
+        }
+        .sec04 article{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:30px;
+            row-gap:60px;
+        }
+        .banner-img .img-box:first-child{
+            grid-area:1/1/2/3;
+        }
+        .banner-img .img-box:nth-child(2){
+            grid-area:2/2/3/4;
+        }
+        .banner-img .img-box:last-child{
+            grid-area:3/1/4/3;
+        }
+        footer{
+            padding:16px 0;
+        }
+
+
+
+        @media(max-width:767px){
+            .header .container{
+                grid-template-columns:auto;
+                justify-content:center;
+            }
+            .sec03 .container{
+                height:auto;
+            }
+            .sec03 article{
+                grid-template-columns:1fr; 
+                gap:20px;
+            }
+            .sec03 .img-box{
+                grid-area:1/1/2/2;
+            }
+            .sec04 article{
+                grid-template-columns:1fr;
+                
+            }
+            .banner-img .img-box:first-child{
+                grid-area:1/1/2/2;
+            }
+            .banner-img .img-box:nth-child(2){
+                grid-area:2/1/3/2;
+            }
+            .banner-img .img-box:last-child{
+                grid-area:3/1/4/2;
+            }
+            footer p{
+                font-size:14px;
+            }
+        }
+        @media(max-width:549px){
+            .sec02 li{
+                font-size:16px;
+            }
+        }
+        @media(max-width:449px){
+            .sec02 li{
+                font-size:14px;
+            }
+        }
+    </style>
+
+    
+</head>
+<body>
+    <section id="wrap">
+        <header class="header">
+            <div class="container">
+                <h1>portfolio</h1>
+                <nav>
+                    <ul>
+                        <li class="home active"><a href="#sec01">home</a></li>
+                        <li class="about"><a href="#sec02">about</a></li>
+                        <li class="web"><a href="#sec03">web</a></li>
+                        <li class="design"><a href="#sec04">design</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section class="sec sec01" id="sec01">
+            <div class="container">
+                <h2>choi sookyoung</h2>
+                <p>안녕하세요 신입 웹디자이너 최숙영입니다.</p>
+                <button><a href="#sec02">start</a></button>
+            </div>
+        </section>
+        <section class="sec sec02" id="sec02">
+            <div class="container">
+                <h2>about</h2>
+                <div class="img-box"><img src="./images/moe-3793863_1280.png" alt="여자이미지">
+                    <ul>
+                        <li>최숙영</li>
+                        <li>1993.07.31</li>
+                        <li>인천광역시시 서구</li>
+                        <li>현대고등학교 졸업</li>
+                        <li>운전면허 2종</li>
+                        <li>반력동물관리사 자격증</li>
+                        <li>인천IT직업전문학교 수료</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="sec sec03" id="sec03">
+            <div class="container">
+                <h2>web</h2>
+                <article class="web popeyes">
+                   <div class="popeyes con">
+                        <h3>파파이스 리디자인</h3>
+                        <p>기존 홈페이지를</p>
+                        <p>새롭게 제작하였습니다.</p>
+                        <p>참여도 100% (개인프로젝트)</p>
+                        <p>반응형 웹디자인</p>
+                        <button><a href="https://sook-young.github.io/soook-young.github.io/" target="_blank">사이트 바로가기</a></button>
+                   </div>
+                   <div class="pepeys-img img-box">
+                        <img src="./images/popeyes.png" alt="파파이스사이트이미지">
+                   </div>
+                </article>   
+                <article class="web megacoffee">
+                    <div class="megacoffee con">
+                        <h3>메가커피 클론코딩</h3>
+                        <p>기존 사이트를</p>
+                        <p>카피하여 제작하였습니다.</p>
+                        <p>참여도 20% (공통프로젝트)</p>
+                        <p>반응형 웹디자인</p>
+                        <button><a href="https://sook-young.github.io/mega/" target="_blank">사이트 바로가기</a></button>
+                    </div>
+                    <div class="megacoffee-img img-box">
+                            <img src="./images/mega.png" alt="메가커피사이트이미지">
+                    </div>
+                </article>
+                <article class="web indigo">
+                    <div class="indigo con">
+                        <h3>인디고</h3>
+                        <p>다양한 스포츠를 소개하는</p>
+                        <p>사이트를 제작하였습니다.</p>
+                        <p>참여도 20% (공통프로젝트)</p>
+                        <p>반응형 웹디자인</p>
+                        <button><a href="https://sook-young.github.io/indigo02/" target="_blank">사이트 바로가기</a></button>
+                    </div>
+                    <div class="indigo-img img-box">
+                            <img src="./images/indigo.png" alt="인디고사이트이미지">
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="sec sec04" id="sec04">
+            <div class="container">
+                <h2>desing</h2>
+                <article class="banner-img">
+                    <div class="img-box"><img src="./images/zara01.jpg" alt="자라"></div>
+                    <div class="img-box"><img src="./images/paris.jpg" alt="파리바게뜨"></div>
+                    <div class="img-box"><img src="./images/banner01.jpg" alt="리에티"></div>
+                </article>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <p>Thank you for watching &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://sook-young.github.io/soook-young.github.io/" class="text-white">click github &nbsp;&nbsp;</a><a href="https://mail.naver.com/write/ext?srvid=note&to=tnrwk93@naver.com" target="_blank">click email</a></p>
+            </div>
+        </footer>
+    </section>
+    <script src="./js/jquery.min.js"></script>
+
+    <script>
+        $(".home,.about,.web,.design").click(function(){
+            if($(".home,.about,.web,.design").toggleClass("active")){
+                $(".home,.about,.web,.design").removeClass("active");
+            } else{
+                $(".home,.about,.web,.design").addClass("active");
+            }
+        });
+        $('nav li').click(function(){
+            $(this).addClass("active");
+        })
+
+    </script>
+</body>
+</html>
