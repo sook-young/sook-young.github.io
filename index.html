@@ -80,6 +80,9 @@
             height:100vh;
             margin:0 auto;
         }
+        .sec01 .container h2{
+            animation: animate 2s infinite;
+        }
         .sec .container h2{
             font-weight:600;
             font-size:2em;
@@ -234,6 +237,18 @@
         @media(max-width:449px){
             .sec02 li{
                 font-size:14px;
+            }
+        }
+
+        @keyframes animate {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1);
             }
         }
     </style>
