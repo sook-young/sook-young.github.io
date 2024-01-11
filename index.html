@@ -220,6 +220,22 @@
         .banner-img .img-box:last-child{
             grid-area:3/1/4/3;
         }
+
+        .popup{
+            position:fixed;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            z-index:999999;             
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup .img-box{
+            width:80%;                                    
+        }
+
         footer{
             padding:16px 0;
         }
@@ -405,18 +421,30 @@
             <div class="container">
                 <h2>desing</h2>
                 <article class="banner-img">
-                    <div class="img-box" data-aos="flip-left" data-aos-delay="300" ata-aos-duration="2000"><img src="./images/zara01.jpg" alt="자라"></div>
-                    <div class="img-box" data-aos="flip-right" data-aos-delay="300" ata-aos-duration="2000"><img src="./images/paris.jpg" alt="파리바게뜨"></div>
-                    <div class="img-box" data-aos="flip-left" data-aos-delay="300" ata-aos-duration="2000"><img src="./images/banner01.jpg" alt="리에티"></div>
+                    <div class="img-box" id="btn-pop01" data-aos="flip-left" data-aos-delay="300" ata-aos-duration="2000"><img src="./images/zara01.jpg" alt="자라"></div>
+                    <div class="img-box" id="btn-pop02" data-aos="flip-right" data-aos-delay="300" ata-aos-duration="2000"><img src="./images/paris.jpg" alt="파리바게뜨"></div>
+                    <div class="img-box" id="btn-pop03" data-aos="flip-left" data-aos-delay="300" ata-aos-duration="2000"><img src="./images/banner01.jpg" alt="리에티"></div>
                 </article>
             </div>
         </section>
-<!--         
-        <div class="popup popup01">1</div>
-        <div class="popup popup02">2</div>
-        <div class="popup popup03">3</div>
+        
+        <!-- <div class="popup popup01">
+            <div class="img-box">
+                <img src="./images/zara01.jpg" alt="banner01">
+            </div>
+        </div>
+        <div class="popup popup02">
+            <div class="img-box">
+                <img src="./images/paris.jpg" alt="banner01">
+            </div>
+        </div>
+        <div class="popup popup03">
+            <div class="img-box">
+                <img src="./images/banner01.jpg" alt="banner01">
+            </div>
+        </div> -->
             
-         -->
+        
         <footer>
             <div class="container">
                 <p>Thank you for watching &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/sook-young/sook-young.github.io" target="_blank">click github &nbsp;&nbsp;</a><a href="https://mail.naver.com/write/ext?srvid=note&to=tnrwk93@naver.com" target="_blank">click email</a></p>
@@ -457,7 +485,35 @@
         //     $('.about').toggleClass('active');
         //     $('.home').removeClass('active');
         // })
-
+            // $('#btn-pop01').click(function(){
+            //     $('.popup').css({
+            //         display:'none',
+            //     })
+            //     $('.popup01').css({
+            //         display:'flex',
+            //     })
+            // })
+            // $('#btn-pop02').click(function(){
+            //     $('.popup').css({
+            //         display:'none',
+            //     })
+            //     $('.popup02').css({
+            //         display:'flex',
+            //     })
+            // })
+            // $('#btn-pop03').click(function(){
+            //     $('.popup').css({
+            //         display:'none',
+            //     })
+            //     $('.popup03').css({
+            //         display:'flex',
+            //     })
+            // })
+            // $('.popup').click(function(){
+            //     $('.popup').css({
+            //         display:'none',
+            //     })
+            // })
     </script>
 </body>
 </html>
