@@ -16,7 +16,9 @@
     <meta name="twitter:image" content="./images/og.jpg">
     <meta name="twitter:title" content="개인포트폴리오">
     <meta name="twitter:description" content="신입 웹디자이너 최숙영의 개인포트폴리오">  
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/reset.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -26,9 +28,25 @@
             font-size:18px;
             text-align:center;
             background:#666;
+            scroll-behavior: smooth;
+        }
+        #skip-menu{
+            position: relative;
+            z-index: 10;
+        }
+        #skip-menu a{
+            position:fixed;
+            left:0;
+            right:0;
+            top:-100px;            
+        }
+        #skip-menu a:focus{
+            top:0;
         }
         #wrap{
             overflow: hidden;
+            position: relative;
+            z-index: 1;
         }
         .header {
             position:fixed;
@@ -70,6 +88,14 @@
             color:#fff;
             transform:scale(1.1);
         }
+        .sec .container h2{
+            font-weight:600;
+            font-size:3em;
+            text-transform:uppercase;
+            color:#fff;
+            text-shadow:1px 1px 3px rgba(0,0,0,0.5);
+            -webkit-text-stroke:1px black;
+        }
         .sec01 .container{
             display:grid;
             grid-template-columns:1fr;
@@ -80,13 +106,16 @@
             height:100vh;
             margin:0 auto;
         }
-        .sec01 .container h2{
-            animation: animate 2s infinite;
+        .sec01 .container h2{    
+            line-height:3em;        
+            animation: animate 2s linear infinite;
+            -webkit-text-stroke:1px white;    
+            color:transparent;    
+            transform: scale(2);    
         }
-        .sec .container h2{
+        .sec01 .container p{
             font-weight:600;
-            font-size:2em;
-            text-transform:uppercase;
+            font-size:24px;    
         }
         .sec01 button{
             width:60px;
@@ -202,6 +231,19 @@
                 grid-template-columns:auto;
                 justify-content:center;
             }
+            .sec .container h2{
+                font-weight:500;
+                font-size:2em;
+            }
+            .sec01 .container h2{   
+                font-weight:500;
+                font-size:1.3em; 
+                animation: animate02 2s linear infinite;
+            }
+            .sec01 .container p{
+                font-weight:500;
+                font-size:18px;    
+            }
             .sec03 .container{
                 height:auto;
             }
@@ -214,7 +256,6 @@
             }
             .sec04 article{
                 grid-template-columns:1fr;
-                
             }
             .banner-img .img-box:first-child{
                 grid-area:1/1/2/2;
@@ -242,13 +283,28 @@
 
         @keyframes animate {
             0% {
-                transform: scale(1);
+                transform: scale(2);
+                /* transform:translateX(500%) */
             }
             50% {
-                transform: scale(1.15);
+                transform: scale(2.5);
+            }
+            100% {
+                transform: scale(2);
+                /* transform: translateX(-500%); */
+            }
+        }
+        @keyframes animate02 {
+            0% {
+                transform: scale(1);
+                /* transform:translateX(500%) */
+            }
+            50% {
+                transform: scale(1.3);
             }
             100% {
                 transform: scale(1);
+                /* transform: translateX(-500%); */
             }
         }
     </style>
@@ -259,6 +315,11 @@
     
 </head>
 <body>
+    <div id="skip-menu">
+        <a href="#about">나의소개 바로가기</a>
+        <a href="#web">웹 퍼블리싱 바로가기</a>
+        <a href="#design">베너디자인 바로가기</a>
+    </div>
     <section id="wrap">
         <header class="header">
             <div class="container">
@@ -266,9 +327,9 @@
                 <nav>
                     <ul>
                         <li class="home active"><a href="#sec01">home</a></li>
-                        <li class="about"><a href="#sec02">about</a></li>
-                        <li class="web"><a href="#sec03">web</a></li>
-                        <li class="design"><a href="#sec04">design</a></li>
+                        <li id="about" class="about"><a href="#sec02">about</a></li>
+                        <li id="web" class="web"><a href="#sec03">web</a></li>
+                        <li id="design" class="design"><a href="#sec04">design</a></li>
                     </ul>
                 </nav>
             </div>
@@ -283,7 +344,7 @@
         <section class="sec sec02" id="sec02">
             <div class="container">
                 <h2>about</h2>
-                <div class="img-box"><img src="./images/moe-3793863_1280.png" alt="여자이미지">
+                <div class="img-box" data-aos="zoom-in" data-aos-delay="300"><img src="./images/moe-3793863_1280.png" alt="여자이미지">
                     <ul>
                         <li>최숙영</li>
                         <li>1993.07.31</li>
@@ -299,7 +360,7 @@
         <section class="sec sec03" id="sec03">
             <div class="container">
                 <h2>web</h2>
-                <article class="web popeyes">
+                <article class="web popeyes" data-aos="fade-left" data-aos-delay="300">
                    <div class="popeyes con">
                         <h3>파파이스 리디자인</h3>
                         <p>기존 홈페이지를</p>
@@ -312,7 +373,7 @@
                         <img src="./images/popeyes.png" alt="파파이스사이트이미지">
                    </div>
                 </article>   
-                <article class="web megacoffee">
+                <article class="web megacoffee" data-aos="fade-right" data-aos-delay="300">
                     <div class="megacoffee con">
                         <h3>메가커피 클론코딩</h3>
                         <p>기존 사이트를</p>
@@ -325,7 +386,7 @@
                             <img src="./images/mega.png" alt="메가커피사이트이미지">
                     </div>
                 </article>
-                <article class="web indigo">
+                <article class="web indigo" data-aos="fade-left" data-aos-delay="300">
                     <div class="indigo con">
                         <h3>인디고</h3>
                         <p>다양한 스포츠를 소개하는</p>
@@ -344,21 +405,28 @@
             <div class="container">
                 <h2>desing</h2>
                 <article class="banner-img">
-                    <div class="img-box"><img src="./images/zara01.jpg" alt="자라"></div>
-                    <div class="img-box"><img src="./images/paris.jpg" alt="파리바게뜨"></div>
-                    <div class="img-box"><img src="./images/banner01.jpg" alt="리에티"></div>
+                    <div class="img-box" data-aos="flip-left" data-aos-delay="300" ata-aos-duration="2000"><img src="./images/zara01.jpg" alt="자라"></div>
+                    <div class="img-box" data-aos="flip-right" data-aos-delay="300" ata-aos-duration="2000"><img src="./images/paris.jpg" alt="파리바게뜨"></div>
+                    <div class="img-box" data-aos="flip-left" data-aos-delay="300" ata-aos-duration="2000"><img src="./images/banner01.jpg" alt="리에티"></div>
                 </article>
             </div>
         </section>
+<!--         
+        <div class="popup popup01">1</div>
+        <div class="popup popup02">2</div>
+        <div class="popup popup03">3</div>
+            
+         -->
         <footer>
             <div class="container">
-                <p>Thank you for watching &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/sook-young" target="_blank">click github &nbsp;&nbsp;</a><a href="https://mail.naver.com/write/ext?srvid=note&to=tnrwk93@naver.com" target="_blank">click email</a></p>
+                <p>Thank you for watching &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/sook-young/sook-young.github.io" target="_blank">click github &nbsp;&nbsp;</a><a href="https://mail.naver.com/write/ext?srvid=note&to=tnrwk93@naver.com" target="_blank">click email</a></p>
             </div>
         </footer>
     </section>
     <script src="./js/jquery.min.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init();
         $(".home,.about,.web,.design").click(function(){
             if($(".home,.about,.web,.design").toggleClass("active")){
                 $(".home,.about,.web,.design").removeClass("active");
