@@ -370,6 +370,22 @@
             $(this).addClass("active");
         })
 
+        let nowTop = 0;
+        $(window).scroll(function(){
+            let scrTop = $(this).scrollTop();
+            if(scrTop==0){
+                console.log(`최상단`);
+                $('header').css({display:'block'})
+            }else if(scrTop>nowTop){
+                console.log(`다운`);
+                $('header').css({display:'none'})
+            }else {
+                console.log(`업`)
+                $('header').css({display:'block'})
+            }
+            nowTop=scrTop;
+        })
+
     </script>
 </body>
 </html>
